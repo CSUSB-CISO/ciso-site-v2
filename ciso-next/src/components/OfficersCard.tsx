@@ -1,35 +1,67 @@
-"use client"
-
 import {
     Card,
     CardHeader,
     CardBody,
     CardFooter,
     Typography,
-    Button,
+    Tooltip,
 } from "@material-tailwind/react";
 
-export function CardDefault() {
+import Image from "next/image"
+
+interface OfficerProfileCard {
+    position: string,
+    name: string,
+    pic: string
+}
+export function ProfileCard(params: OfficerProfileCard) {
     return (
-        <Card className="mt-6 w-96">
-            <CardHeader color="blue-gray" className="relative h-56">
-                <img
-                    src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                    alt="card-image"
-                />
+        <Card className="w-96">
+            <CardHeader floated={false} className="h-80 flex">
+                <img src={params.pic} alt="profile-picture" />
             </CardHeader>
-            <CardBody>
-                <Typography variant="h5" color="blue-gray" className="mb-2">
-                    UI/UX Review Check
+            <CardBody className="text-center">
+                <Typography variant="h4" color="blue-gray" className="mb-2">
+                    {params.name}
                 </Typography>
-                <Typography>
-                    The place is close to Barceloneta Beach and bus stop just 2 min by
-                    walk and near to &quot;Naviglio&quot; where you can enjoy the main
-                    night life in Barcelona.
+                <Typography color="blue-gray" className="font-medium" textGradient>
+                    {params.position}
                 </Typography>
             </CardBody>
-            <CardFooter className="pt-0">
-                <Button>Read More</Button>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+                <Tooltip content="Like">
+                    <Typography
+                        as="a"
+                        href="#facebook"
+                        variant="lead"
+                        color="blue"
+                        textGradient
+                    >
+                        <i className="fab fa-facebook" />
+                    </Typography>
+                </Tooltip>
+                <Tooltip content="Follow">
+                    <Typography
+                        as="a"
+                        href="#twitter"
+                        variant="lead"
+                        color="light-blue"
+                        textGradient
+                    >
+                        <i className="fab fa-twitter" />
+                    </Typography>
+                </Tooltip>
+                <Tooltip content="Follow">
+                    <Typography
+                        as="a"
+                        href="#instagram"
+                        variant="lead"
+                        color="purple"
+                        textGradient
+                    >
+                        <i className="fab fa-instagram" />
+                    </Typography>
+                </Tooltip>
             </CardFooter>
         </Card>
     );

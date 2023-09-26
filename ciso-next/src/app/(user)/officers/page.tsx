@@ -1,4 +1,6 @@
-import {CardDefault} from "@/components/OfficersCard";
+"use client"
+import {ProfileCard} from "@/components/OfficersCard";
+
 
 export default function Officers()
 {
@@ -7,7 +9,7 @@ export default function Officers()
             <h1>Yuh we doin it</h1>
 
             <div className='flex items-center justify-center'>
-                <CardDefault/>
+                <ProfileCard name='Hunter Pittman' position="President" pic='/assets/Hunta_352x320.jpg' />
             </div>
         </>
     );

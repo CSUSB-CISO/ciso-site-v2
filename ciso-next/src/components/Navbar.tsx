@@ -1,6 +1,8 @@
 "use client"
 
 import React from "react";
+import Image from "next/image";
+
 import {
   Navbar,
   Collapse,
@@ -32,6 +34,8 @@ import {
   GiftIcon,
 } from "@heroicons/react/24/outline";
 
+// import CISOLogo from 'public/ciso_logo.png'
+
 type ColorsType = {
   [key: string]: string; // Define keys as strings and values as strings
 };
@@ -51,61 +55,20 @@ const navListMenuItems = [
   {
     color: "blue",
     icon: FlagIcon,
-    title: "About us",
-    description: "Learn about our story and our mission statement.",
+    title: "CCDC",
+    description: "Cyber Collegiate Defense Competition",
   },
   {
     color: "orange",
     icon: ChatBubbleOvalLeftIcon,
-    title: "Press",
-    description: "News and writings, press releases, and resources",
-  },
-  {
-    color: "green",
-    icon: UsersIcon,
-    title: (
-        <div className="flex items-center gap-1">
-          Careers{" "}
-          <Chip
-              size="sm"
-              color="green"
-              variant="ghost"
-              value="We're hiring!"
-              className="capitalize"
-          />
-        </div>
-    ),
-    description: "We are always looking for talented people. Join us!",
+    title: "NCL",
+    description: "National Cyber League",
   },
   {
     color: "blue-gray",
     icon: FolderIcon,
-    title: "Legal",
-    description: "All the stuff that we dan from legal made us add.",
-  },
-  {
-    color: "purple",
-    icon: RocketLaunchIcon,
-    title: "Products",
-    description: "Checkout our products that helps a startup running.",
-  },
-  {
-    color: "teal",
-    icon: FaceSmileIcon,
-    title: "Icons",
-    description: "Set of beautiful icons that you can use in your project.",
-  },
-  {
-    color: "cyan",
-    icon: PuzzlePieceIcon,
-    title: "UI Kits",
-    description: "High quality UI Kits helps you to 2x faster.",
-  },
-  {
-    color: "pink",
-    icon: GiftIcon,
-    title: "Open Source",
-    description: "List of all our open-source projects, it's all free.",
+    title: "ITC",
+    description: "Information Technology Competition",
   },
 ];
 
@@ -157,7 +120,7 @@ function NavListMenu() {
                   onClick={() => setIsMobileMenuOpen((cur) => !cur)}
               >
                 <Square3Stack3DIcon className="h-[18px] w-[18px]" />
-                Resources
+                Competitions
                 <ChevronDownIcon
                     strokeWidth={2.5}
                     className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -229,14 +192,12 @@ export function NavbarWithMegaMenu() {
   return (
       <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-              as="a"
-              href="#"
-              variant="h6"
-              className="mr-4 cursor-pointer py-1.5 lg:ml-2"
-          >
-            Material Tailwind
-          </Typography>
+          <Image
+              src='/assets/ciso_logo.png'
+              alt="CISO"
+              width={70}
+              height={70}
+          />
           <div className="hidden lg:block">
             <NavList />
           </div>
