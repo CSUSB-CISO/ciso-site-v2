@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Providers from './providers'
+import {SidebarWithLogo} from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +27,7 @@ export default function RootLayout({
           <title>Cyber Warden</title>
         </head>
         <Providers>
-          <Navbar />
+          <SidebarWithLogo />
           {children}
         </Providers>
       </body>

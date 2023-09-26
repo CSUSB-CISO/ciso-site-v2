@@ -1,4 +1,4 @@
-import BasicCard from "@/components/OfficersCard";
+import {CardDefault} from "@/components/OfficersCard";
 
 export default function Officers()
 {
@@ -7,7 +7,7 @@ export default function Officers()
             <h1>Yuh we doin it</h1>
 
             <div className='flex items-center justify-center'>
-                <BasicCard/>
+                <CardDefault/>
             </div>
         </>
     );

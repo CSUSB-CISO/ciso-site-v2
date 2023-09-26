@@ -1,95 +1,277 @@
-import Link from "next/link";
+"use client"
 
-export default function Navbar() {
+import React from "react";
+import {
+  Navbar,
+  Collapse,
+  Typography,
+  Button,
+  IconButton,
+  List,
+  ListItem,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Chip,
+} from "@material-tailwind/react";
+import {
+  ChevronDownIcon,
+  UserCircleIcon,
+  CubeTransparentIcon,
+  Bars3Icon,
+  XMarkIcon,
+  FlagIcon,
+  ChatBubbleOvalLeftIcon,
+  UsersIcon,
+  FolderIcon,
+  Square3Stack3DIcon,
+  RocketLaunchIcon,
+  FaceSmileIcon,
+  PuzzlePieceIcon,
+  GiftIcon,
+} from "@heroicons/react/24/outline";
+
+type ColorsType = {
+  [key: string]: string; // Define keys as strings and values as strings
+};
+
+const colors: ColorsType = {
+  blue: "bg-blue-50 text-blue-500",
+  orange: "bg-orange-50 text-orange-500",
+  green: "bg-green-50 text-green-500",
+  "blue-gray": "bg-blue-gray-50 text-blue-gray-500",
+  purple: "bg-purple-50 text-purple-500",
+  teal: "bg-teal-50 text-teal-500",
+  cyan: "bg-cyan-50 text-cyan-500",
+  pink: "bg-pink-50 text-pink-500",
+};
+
+const navListMenuItems = [
+  {
+    color: "blue",
+    icon: FlagIcon,
+    title: "About us",
+    description: "Learn about our story and our mission statement.",
+  },
+  {
+    color: "orange",
+    icon: ChatBubbleOvalLeftIcon,
+    title: "Press",
+    description: "News and writings, press releases, and resources",
+  },
+  {
+    color: "green",
+    icon: UsersIcon,
+    title: (
+        <div className="flex items-center gap-1">
+          Careers{" "}
+          <Chip
+              size="sm"
+              color="green"
+              variant="ghost"
+              value="We're hiring!"
+              className="capitalize"
+          />
+        </div>
+    ),
+    description: "We are always looking for talented people. Join us!",
+  },
+  {
+    color: "blue-gray",
+    icon: FolderIcon,
+    title: "Legal",
+    description: "All the stuff that we dan from legal made us add.",
+  },
+  {
+    color: "purple",
+    icon: RocketLaunchIcon,
+    title: "Products",
+    description: "Checkout our products that helps a startup running.",
+  },
+  {
+    color: "teal",
+    icon: FaceSmileIcon,
+    title: "Icons",
+    description: "Set of beautiful icons that you can use in your project.",
+  },
+  {
+    color: "cyan",
+    icon: PuzzlePieceIcon,
+    title: "UI Kits",
+    description: "High quality UI Kits helps you to 2x faster.",
+  },
+  {
+    color: "pink",
+    icon: GiftIcon,
+    title: "Open Source",
+    description: "List of all our open-source projects, it's all free.",
+  },
+];
+
+function NavListMenu() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  const renderItems = navListMenuItems.map(
+      ({ icon, title, description, color }, key) => (
+          <a href="#" key={key}>
+            <MenuItem className="flex items-center gap-3 rounded-lg">
+              <div className={`rounded-lg p-5 ${colors[color]}`}>
+                {React.createElement(icon, {
+                  strokeWidth: 2,
+                  className: "h-6 w-6",
+                })}
+              </div>
+              <div>
+                <Typography
+                    variant="h6"
+                    color="blue-gray"
+                    className="flex items-center text-sm"
+                >
+                  {title}
+                </Typography>
+                <Typography variant="small" color="gray" className="font-normal">
+                  {description}
+                </Typography>
+              </div>
+            </MenuItem>
+          </a>
+      )
+  );
+
   return (
-<nav className="bg-gray-800">
-  <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div className="relative flex h-16 items-center justify-between">
-      <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        {/* <!-- Mobile menu button--> */}
-        <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-          <span className="absolute -inset-0.5"></span>
-          <span className="sr-only">Open main menu</span>
-          {/* <!--
-            Icon when menu is closed.
-
-            Menu open: "hidden", Menu closed: "block"
-          --> */}
-          <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          {/* <!--
-            Icon when menu is open.
-
-            Menu open: "block", Menu closed: "hidden"
-          --> */}
-          <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div className="flex flex-shrink-0 items-center">
+      <React.Fragment>
+        <Menu
+            open={isMenuOpen}
+            handler={setIsMenuOpen}
+            offset={{ mainAxis: 20 }}
+            placement="bottom"
+            allowHover={true}
+        >
+          <MenuHandler>
+            <Typography as="div" variant="small" className="font-normal">
+              <ListItem
+                  className="flex items-center gap-2 py-2 pr-4"
+                  selected={isMenuOpen || isMobileMenuOpen}
+                  onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+              >
+                <Square3Stack3DIcon className="h-[18px] w-[18px]" />
+                Resources
+                <ChevronDownIcon
+                    strokeWidth={2.5}
+                    className={`hidden h-3 w-3 transition-transform lg:block ${
+                        isMenuOpen ? "rotate-180" : ""
+                    }`}
+                />
+                <ChevronDownIcon
+                    strokeWidth={2.5}
+                    className={`block h-3 w-3 transition-transform lg:hidden ${
+                        isMobileMenuOpen ? "rotate-180" : ""
+                    }`}
+                />
+              </ListItem>
+            </Typography>
+          </MenuHandler>
+          <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
+            <ul className="grid grid-cols-4 gap-y-2">{renderItems}</ul>
+          </MenuList>
+        </Menu>
+        <div className="block lg:hidden">
+          <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
         </div>
-        <div className="hidden sm:ml-6 sm:block">
-          <div className="flex space-x-4">
-            {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            <a href="#" className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
-            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
-            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
+      </React.Fragment>
+  );
+}
+
+function NavList() {
+  return (
+      <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <CubeTransparentIcon className="h-[18px] w-[18px]" />
+            Blocks
+          </ListItem>
+        </Typography>
+        <NavListMenu />
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            Account
+          </ListItem>
+        </Typography>
+      </List>
+  );
+}
+
+export function NavbarWithMegaMenu() {
+  const [openNav, setOpenNav] = React.useState(false);
+
+  React.useEffect(() => {
+    window.addEventListener(
+        "resize",
+        () => window.innerWidth >= 960 && setOpenNav(false)
+    );
+  }, []);
+
+  return (
+      <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
+        <div className="flex items-center justify-between text-blue-gray-900">
+          <Typography
+              as="a"
+              href="#"
+              variant="h6"
+              className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+          >
+            Material Tailwind
+          </Typography>
+          <div className="hidden lg:block">
+            <NavList />
           </div>
+          <div className="hidden gap-2 lg:flex">
+            <Button variant="text" size="sm" color="blue-gray">
+              Sign In
+            </Button>
+            <Button variant="gradient" size="sm">
+              Sign Up
+            </Button>
+          </div>
+          <IconButton
+              variant="text"
+              color="blue-gray"
+              className="lg:hidden"
+              onClick={() => setOpenNav(!openNav)}
+          >
+            {openNav ? (
+                <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+            ) : (
+                <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+            )}
+          </IconButton>
         </div>
-      </div>
-      <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <span className="absolute -inset-1.5"></span>
-          <span className="sr-only">View notifications</span>
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-          </svg>
-        </button>
-
-        {/* <!-- Profile dropdown --> */}
-        <div className="relative ml-3">
-          <div>
-            <button type="button" className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span className="absolute -inset-1.5"></span>
-              <span className="sr-only">Open user menu</span>
-            </button>
+        <Collapse open={openNav}>
+          <NavList />
+          <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+            <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
+              Sign In
+            </Button>
+            <Button variant="gradient" size="sm" fullWidth>
+              Sign Up
+            </Button>
           </div>
-
-          {/* <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          --> */}
-          <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
-            {/* <!-- Active: "bg-gray-100", Not Active: "" --> */}
-            <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-0">Your Profile</a>
-            <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-1">Settings</a>
-            <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-2">Sign out</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-  <div className="sm:hidden" id="mobile-menu">
-    <div className="space-y-1 px-2 pb-3 pt-2">
-      {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-      <a href="#" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-      <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-      <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-      <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
-    </div>
-  </div>
-</nav>
+        </Collapse>
+      </Navbar>
   );
 }
