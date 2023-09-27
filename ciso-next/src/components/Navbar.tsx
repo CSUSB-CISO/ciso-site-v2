@@ -2,6 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import type { NavbarProps } from "@material-tailwind/react";
+import Link from "next/link"
+import {competitionNavListMenuItems, megaMenuInterface, officersnNavListMenuItems} from "../"
 
 import {
   Navbar,
@@ -17,6 +20,7 @@ import {
   MenuItem,
   Chip,
 } from "@material-tailwind/react";
+
 import {
   ChevronDownIcon,
   UserCircleIcon,
@@ -51,34 +55,13 @@ const colors: ColorsType = {
   pink: "bg-pink-50 text-pink-500",
 };
 
-const navListMenuItems = [
-  {
-    color: "blue",
-    icon: FlagIcon,
-    title: "CCDC",
-    description: "Cyber Collegiate Defense Competition",
-  },
-  {
-    color: "orange",
-    icon: ChatBubbleOvalLeftIcon,
-    title: "NCL",
-    description: "National Cyber League",
-  },
-  {
-    color: "blue-gray",
-    icon: FolderIcon,
-    title: "ITC",
-    description: "Information Technology Competition",
-  },
-];
-
-function NavListMenu() {
+function NavListMenu ({ data, itemName }: megaMenuInterface) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const renderItems = navListMenuItems.map(
-      ({ icon, title, description, color }, key) => (
-          <a href="#" key={key}>
+  const renderItems = data.map(
+      ({ icon, title, description, color, href }, key) => (
+          <a href={href} key={key}>
             <MenuItem className="flex items-center gap-3 rounded-lg">
               <div className={`rounded-lg p-5 ${colors[color]}`}>
                 {React.createElement(icon, {
@@ -120,7 +103,7 @@ function NavListMenu() {
                   onClick={() => setIsMobileMenuOpen((cur) => !cur)}
               >
                 <Square3Stack3DIcon className="h-[18px] w-[18px]" />
-                Competitions
+                  {itemName}
                 <ChevronDownIcon
                     strokeWidth={2.5}
                     className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -150,19 +133,30 @@ function NavListMenu() {
 function NavList() {
   return (
       <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
+
         <Typography
             as="a"
-            href="#"
+            href="/officers"
             variant="small"
             color="blue-gray"
             className="font-normal"
         >
           <ListItem className="flex items-center gap-2 py-2 pr-4">
             <CubeTransparentIcon className="h-[18px] w-[18px]" />
-            Blocks
+            Home
           </ListItem>
         </Typography>
-        <NavListMenu />
+
+        <NavListMenu
+            data={competitionNavListMenuItems}
+            itemName="Competitions"
+        />
+
+        <NavListMenu
+            data={officersnNavListMenuItems}
+            itemName="Officers"
+        />
+
         <Typography
             as="a"
             href="#"
@@ -170,9 +164,122 @@ function NavList() {
             color="blue-gray"
             className="font-normal"
         >
+
           <ListItem className="flex items-center gap-2 py-2 pr-4">
             <UserCircleIcon className="h-[18px] w-[18px]" />
-            Account
+            Calendar
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            Projects
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            Events
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            Resources
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            Mentorship
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            CyberSquad
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            GenCyber
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            WiCyS
+          </ListItem>
+        </Typography>
+
+        <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-normal"
+        >
+
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            <UserCircleIcon className="h-[18px] w-[18px]" />
+            About
           </ListItem>
         </Typography>
       </List>
@@ -190,7 +297,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-      <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
+      <Navbar fullWidth={true} className="mx-auto min-w-screen-xl px-4 py-2">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Image
               src='/assets/ciso_logo.png'

@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import {NavbarWithMegaMenu} from '@/components/Navbar'
+import {FooterWithLogo} from "@/components/Footer";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,10 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`inter.className bg-gradient-to-t from-blue-gray-50 to-blue-gray-600`}>
         <NavbarWithMegaMenu />
         {children}
-        </body>
+        <FooterWithLogo/>
+      </body>
     </html>
   )
 }

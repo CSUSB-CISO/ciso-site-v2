@@ -12,12 +12,13 @@ import Image from "next/image"
 interface OfficerProfileCard {
     position: string,
     name: string,
-    pic: string
+    pic: string,
+
 }
 export function ProfileCard(params: OfficerProfileCard) {
     return (
-        <Card className="w-96">
-            <CardHeader floated={false} className="h-80 flex">
+        <Card className="w-64">
+            <CardHeader floated={false} className="h-48 flex">
                 <img src={params.pic} alt="profile-picture" />
             </CardHeader>
             <CardBody className="text-center">
