@@ -255,19 +255,10 @@ function NavList() {
           </ListItem>
         </Typography>
 
-        <Typography
-            as="a"
-            href="#"
-            variant="small"
-            color="blue-gray"
-            className="font-normal"
-        >
-
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            <UserCircleIcon className="h-[18px] w-[18px]" />
-            WiCyS
-          </ListItem>
-        </Typography>
+          <NavListMenu
+              data={competitionNavListMenuItems}
+              itemName="WiCyS"
+          />
 
         <Typography
             as="a"

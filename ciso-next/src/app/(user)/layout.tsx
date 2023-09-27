@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`inter.className bg-gradient-to-t from-blue-gray-50 to-blue-gray-600`}>
+      <body className={`${inter.className} h-screen w-screen bg-gradient-to-t from-blue-gray-50 to-blue-gray-600`}>
         <NavbarWithMegaMenu />
         {children}
         <FooterWithLogo/>

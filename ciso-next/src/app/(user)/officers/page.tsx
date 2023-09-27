@@ -17,7 +17,7 @@ export default function Officers() {
     ];
 
     return (
-        <>
+        <main>
             <div className='flex justify-center mt-20'>
                 {/*<img src='/assets/ciso_current_officers_logo.png' alt='Current Officers'/>*/}
                 <Typography variant="h1">Current Officers</Typography>
@@ -29,7 +29,7 @@ export default function Officers() {
                     ))}
                 </div>
             </div>
-        </>
+        </main>
 
     );
 }
