@@ -49,28 +49,29 @@ export const officersnNavListMenuItems = [
         color: "blue",
         icon: FlagIcon,
         title: "Current Officers",
-        description: "Cyber Collegiate Defense Competition",
-        href: "#"
+        description: "",
+        href: "/officers/currentofficers"
     },
     {
         color: "orange",
         icon: ChatBubbleOvalLeftIcon,
         title: "Previous Officers",
-        description: "National Cyber League",
-        href: "#"
+        description: "",
+        href: "/officers/previousofficers"
     },
     {
         color: "blue-gray",
         icon: FolderIcon,
         title: "Officer Election",
-        description: "Information Technology Competition",
-        href: "#"
+        description: "",
+        href: "/officers/officerelection"
     },
     {
         color: "blue-gray",
         icon: FolderIcon,
         title: "Cyber Security Center",
-        description: "Information Technology Competition",
-        href: "#"
+        description: "",
+        href: "/officers/cybersecuritycenter"
     },
 ];
+

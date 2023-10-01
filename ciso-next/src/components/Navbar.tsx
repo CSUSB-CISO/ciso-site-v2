@@ -136,7 +136,7 @@ function NavList() {
 
         <Typography
             as="a"
-            href="/officers"
+            href="/"
             variant="small"
             color="blue-gray"
             className="font-normal"
