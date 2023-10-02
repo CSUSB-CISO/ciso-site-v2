@@ -9,13 +9,13 @@ import {
 
 import Image from "next/image"
 
-interface OfficerProfileCard {
+interface officerProfileCard {
     position: string,
     name: string,
     pic: string,
 
 }
-export function ProfileCard(params: OfficerProfileCard) {
+export function ProfileCard(params: officerProfileCard) {
     return (
         <Card className="w-64">
             <CardHeader floated={false} className="h-48 flex">

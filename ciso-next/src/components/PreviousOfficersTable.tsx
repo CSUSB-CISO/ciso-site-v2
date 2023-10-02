@@ -32,10 +32,6 @@ const TABS = [
     },
 ];
 
-
-
-
-
 export function MembersTable() {
 
     return (

@@ -1,5 +1,5 @@
 "use client"
-import {ProfileCard} from "@/components/OfficersCard";
+import {ProfileCard} from "@/components/ProfileCard";
 import {Typography} from "@material-tailwind/react";
 
 
