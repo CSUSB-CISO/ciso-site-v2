@@ -31,7 +31,7 @@ export const cyberSecurityCenterMembers = [
             "Charles fulfills a vital role in shaping the training structure and career development for the Armed Forces Veterans and bachelor’s degree-holding scholarship recipients pursuing associate degrees or certifications in cybersecurity. Charles is also the advisor of the CSUSB chartered Pan-African STEM Society, Coyote Amateur Radio Emergency Communications Club, Coyote Karate Club, and Cyber Squad outreach programs of CSUSB’s Cyber Intelligence & Security Organization (CISO). He is a U.S. Army veteran and CSUSB Business/Cybersecurity alumnus. ",
     },
     {
-        pic: "/assets/cybersecuritycenter_pics/robertson.png",
+        pic: "/assets/cybersecuritycenter_pics/robertson.png    ",
         subtitle: "Administrative Assistant",
         title: "Robin Robertson",
         description: "Robin Robertson\n" +

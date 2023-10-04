@@ -19,7 +19,7 @@ export const competitionNavListMenuItems = [
         icon: FlagIcon,
         title: "CCDC",
         description: "Cyber Collegiate Defense Competition",
-        href: "#"
+        href: "/competitions/ccdc"
     },
     {
         color: "orange",

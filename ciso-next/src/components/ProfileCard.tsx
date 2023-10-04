@@ -19,7 +19,7 @@ export function ProfileCard(params: officerProfileCard) {
     return (
         <Card className="w-64">
             <CardHeader floated={false} className="h-48 flex">
-                <img src={params.pic} alt="profile-picture" />
+                <img src={params.pic} alt="profile-picture" className="h-full w-full object-cover"/>
             </CardHeader>
             <CardBody className="text-center">
                 <Typography variant="h4" color="blue-gray" className="mb-2">
