@@ -19,12 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <head>
-          <meta charSet="utf-8" />
-          <meta name="description" content="Cyber Warden" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Cyber Warden</title>
-        </head>
         <Providers>
           <SidebarWithLogo />
           {children}

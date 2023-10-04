@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import {NavbarWithMegaMenu} from '@/components/Navbar'
 import {FooterWithLogo} from "@/components/Footer";
+import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} h-screen w-screen bg-gradient-to-t from-blue-gray-50 to-blue-gray-600`}>
-        <NavbarWithMegaMenu />
-        {children}
-        <FooterWithLogo/>
+      <body className={`${inter.className} h-screen max-w-screen bg-gradient-to-t from-blue-gray-50 to-blue-gray-600 dark:bg-black`}>
+        <Providers>
+
+          <NavbarWithMegaMenu />
+          {children}
+          <FooterWithLogo/>
+        </Providers>
       </body>
     </html>
   )
