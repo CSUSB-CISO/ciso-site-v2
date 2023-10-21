@@ -5,7 +5,6 @@ import Image from "next/image";
 import type { NavbarProps } from "@material-tailwind/react";
 import Link from "next/link"
 import {competitionNavListMenuItems, megaMenuInterface, officersnNavListMenuItems} from "../"
-import ThemeSwitcher from "./ThemeSwitcher";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import ProfileMenu from "./ProfileMenu";
@@ -154,7 +153,7 @@ function NavList() {
     if (!mounted) return null
 
   return (
-      <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
+      <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 flex items-center justify-center">
 
         <Typography
             as="a"
@@ -189,20 +188,6 @@ function NavList() {
 
           <ListItem className="flex items-center gap-2 py-2 pr-4">
             <UserCircleIcon className="h-[18px] w-[18px]" />
-            Calendar
-          </ListItem>
-        </Typography>
-
-        <Typography
-            as="a"
-            href="#"
-            variant="small"
-            color="blue-gray"
-            className="font-normal"
-        >
-
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            <UserCircleIcon className="h-[18px] w-[18px]" />
             Projects
           </ListItem>
         </Typography>
@@ -218,20 +203,6 @@ function NavList() {
           <ListItem className="flex items-center gap-2 py-2 pr-4">
             <UserCircleIcon className="h-[18px] w-[18px]" />
             Events
-          </ListItem>
-        </Typography>
-
-        <Typography
-            as="a"
-            href="#"
-            variant="small"
-            color="blue-gray"
-            className="font-normal"
-        >
-
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            <UserCircleIcon className="h-[18px] w-[18px]" />
-            Resources
           </ListItem>
         </Typography>
 
@@ -295,23 +266,6 @@ function NavList() {
             About
           </ListItem>
         </Typography>
-        <Typography
-            as="a"
-            href="#"
-            variant="small"
-            color="blue-gray"
-            className="font-normal"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        >
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            {
-              theme === 'dark' ?
-                  <SunIcon className=" text-deep-orange-400 h-[18px] w-[18px]" />
-                  :
-                  <MoonIcon className=" text-gray-700 h-[18px] w-[18px]" />
-            }
-          </ListItem>
-        </Typography>
       </List>
   );
 }
@@ -327,7 +281,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-      <Navbar fullWidth={true} className="max-w-screen sticky top-0 left-0 dark:bg-black z-10">
+      <Navbar fullWidth={true} className="max-w-screen sticky top-0 left-0 dark:bg-black z-10 justify-center ">
         <div className="flex items-center justify-between text-blue-gray-900 ">
           <Image
               src='/assets/ciso_logo.png'
@@ -339,11 +293,8 @@ export function NavbarWithMegaMenu() {
             <NavList />
           </div>
           <div className="hidden gap-2 lg:flex">
-            <Button variant="text" size="sm" color="blue-gray">
-              Sign In
-            </Button>
             <Button variant="gradient" size="sm">
-              Sign Up
+              Sign In
             </Button>
           </div>
           <IconButton
