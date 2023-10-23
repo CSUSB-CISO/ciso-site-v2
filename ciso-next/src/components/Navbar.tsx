@@ -261,7 +261,7 @@ function NavList() {
             className="font-normal"
         >
 
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
+          <ListItem className="flex items-center gap-2 py-2 pr-4 text-white">
             <UserCircleIcon className="h-[18px] w-[18px]" />
             About
           </ListItem>
@@ -281,7 +281,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-      <Navbar fullWidth={true} className="max-w-screen sticky top-0 left-0 dark:bg-black z-10 justify-center ">
+      <Navbar fullWidth={true} color={"transparent"} className="max-w-screen sticky top-0 left-0 z-10 justify-center">
         <div className="flex items-center justify-between text-blue-gray-900 ">
           <Image
               src='/assets/ciso_logo.png'
@@ -292,7 +292,7 @@ export function NavbarWithMegaMenu() {
           <div className="hidden lg:block">
             <NavList />
           </div>
-          <div className="hidden gap-2 lg:flex">
+          <div className="hidden gap-2 lg:flex text-white">
             <Button variant="gradient" size="sm">
               Sign In
             </Button>

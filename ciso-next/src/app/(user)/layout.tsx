@@ -19,10 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} h-screen max-w-screen`}>
+      <body className={`${inter.className} max-w-screen bg-site bg-no-repeat bg-cover overflow-auto relative`}>
 
           <NavbarWithMegaMenu />
           {children}
+          <div className='h-[4000px]'></div>
           {/* <FooterWithLogo/> */}
       </body>
     </html>

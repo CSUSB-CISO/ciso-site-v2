@@ -10,10 +10,10 @@ import TempSection from "./TempSection";
 export default function NewHome() {
 
     return (
-        <main className="flex flex-col gap-y-96 snap-mandatory snap-y items-center bg-site bg-no-repeat bg-cover overflow-hidden">
+        <main className="flex flex-col gap-y-96 snap-mandatory snap-y items-center ">
             <HomeSection />
             <TempSection />
-            <div className='h-[4000px]'></div>
+
         </main>
     )
 }

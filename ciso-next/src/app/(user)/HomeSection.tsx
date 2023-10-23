@@ -16,9 +16,9 @@ function HomeSection() {
     }
 
   return (
-    <section className="flex max-w-3xl md:max-w-screen-2xl min-h-unit-10 mt-32 snap-start" id="main">
+    <section className="flex max-w-3xl md:max-w-[1500px] min-h-unit-10 mt-[116px] snap-start" id="main">
 
-        <div className="flex items-center mr-16 ">
+        <div className="flex items-center justify-center mr-16 ">
             <img src='/assets/ciso_logo_circle.png' alt='ciso logo' className="w-unit-3xl h-unit-3xl lg:w-unit-5xl lg:5xl 2xl:w-unit-8xl 2xl:h-unit-8xl" />
         </div>
 
@@ -36,30 +36,30 @@ function HomeSection() {
               alt="ciso text logo"
               className="w-96 h-20" />
 
-                <TypeAnimation
-                sequence={[
-                    () => {
-                        setCursor(!cursor)
-                        console.log("One", cursor)
-                    },
-                    'Cyber Hackers', 
-                    1000, // Waits 1s
-                    'Cyber Intelligence', 
-                    1000, // Waits 2s
-                    'Cyber Intelligence and Security Organization',
-                    () => {
-                        setCursor(!cursor)
-                        console.log("Two", cursor)
-                    },
-                    15000,
-                ]}
-                wrapper="span"
-                cursor={cursor}
-                repeat={1}
-                style={{ fontSize: '2.5em', display: 'inline-block', width: '45rem', color: 'white', }}
-                />
+            <TypeAnimation
+            sequence={[
+                () => {
+                    setCursor(!cursor)
+                    console.log("One", cursor)
+                },
+                'Cyber H4CK3R5', 
+                1000, // Waits 0.5s
+                'Cyber Intelligence', 
+                1000, // Waits 1s
+                'Cyber Intelligence and Security Organization',
+                () => {
+                    setCursor(!cursor)
+                    console.log("Two", cursor)
+                },
+                15000,
+            ]}
+            wrapper="span"
+            cursor={cursor}
+            repeat={1}
+            style={{ fontSize: '2.5em', display: 'inline-block', width: '55rem', color: 'rgb(255, 255, 255, 0.8)' }}
+            />
             <div className=" max-w-2xl ">
-                <p className="text-md italic text-white">
+                <p className="text-lg italic text-gray-200">
                     The Cyber Intel & Security Organization at California State University, San Bernardino is devoted to the art and science of information security. We are a diverse, welcoming group of students passionate about breaking, hacking, and fixing things.
                 </p>
             </div>
