@@ -16,7 +16,7 @@ function HomeSection() {
     }
 
   return (
-    <section className="flex max-w-3xl md:max-w-screen-2xl min-h-unit-10 mt-32" id="main">
+    <section className="flex max-w-3xl md:max-w-screen-2xl min-h-unit-10 mt-32 snap-start" id="main">
 
         <div className="flex items-center mr-16 ">
             <img src='/assets/ciso_logo_circle.png' alt='ciso logo' className="w-unit-3xl h-unit-3xl lg:w-unit-5xl lg:5xl 2xl:w-unit-8xl 2xl:h-unit-8xl" />
@@ -56,10 +56,10 @@ function HomeSection() {
                 wrapper="span"
                 cursor={cursor}
                 repeat={1}
-                style={{ fontSize: '2em', display: 'inline-block', width: '45rem' }}
+                style={{ fontSize: '2.5em', display: 'inline-block', width: '45rem', color: 'white', }}
                 />
-            <div className=" max-w-2xl">
-                <p className=" text-sm italic ">
+            <div className=" max-w-2xl ">
+                <p className="text-md italic text-white">
                     The Cyber Intel & Security Organization at California State University, San Bernardino is devoted to the art and science of information security. We are a diverse, welcoming group of students passionate about breaking, hacking, and fixing things.
                 </p>
             </div>

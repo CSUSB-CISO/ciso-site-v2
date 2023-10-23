@@ -11,7 +11,13 @@ module.exports = withMT({
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: 'class',
-  theme: {},
+  theme: {
+    extend: {
+        backgroundImage: {
+          site: "url('/assets/site-bg.png')",
+        },
+    }
+  },
   plugins: [nextui({
     prefix: "app",
     themes: {
